@@ -1,4 +1,6 @@
+import { HomeIcon, CashIcon } from '@heroicons/react/outline'
 import { ReactNode, VFC } from 'react'
+import { HeaderItem } from './HeaderItem'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -12,69 +14,46 @@ export const Layout: VFC<Props> = ({
   title = 'Welcome to Nextjs',
 }) => {
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen text-gray-600 text-sm font-mono">
+    <>
+      {/* <div className="bg-no-repeat bg-center bg-guku-image md:bg-auto sm:bg-cover flex flex-col items-center text-sm font-mono h-800"> */}
+
       <Head>
         <title>{title}</title>
       </Head>
-      <header>
-        <nav className="bg-gray-800 w-screen">
-          <div className="flex items-center pl-8 h-14">
-            <div className="flex space-x-4">
-              <Link href="/">
-                <a
-                  data-testid="home-nav"
-                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
-                >
-                  Home
-                </a>
-              </Link>
-              <Link href="/local-state-a">
-                <a
-                  data-testid="makevar-nav"
-                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
-                >
-                  makeVar
-                </a>
-              </Link>
-              <Link href="/hasura-main">
-                <a
-                  data-testid="fetchpolicy-nav"
-                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
-                >
-                  fetchPolicy(Hasura)
-                </a>
-              </Link>
-              <Link href="/hasura-crud">
-                <a
-                  data-testid="crud-nav"
-                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
-                >
-                  CRUD(Hasura)
-                </a>
-              </Link>
-              <Link href="/hasura-ssg">
-                <a
-                  data-testid="ssg-nav"
-                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
-                >
-                  SSG+ISR(Hasura)
-                </a>
-              </Link>
-              <Link href="/hooks-memo">
-                <a
-                  data-testid="memo-nav"
-                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
-                >
-                  custom hook + memo
-                </a>
-              </Link>
-            </div>
+      <div>
+        <header>
+          <div>
+            <HeaderItem title="HOME" Icon={HomeIcon} />
+            <HeaderItem title="CASH" Icon={CashIcon} />
           </div>
-        </nav>
-      </header>
-      <main className="flex flex-1 flex-col justify-center items-center w-screen">
-        {children}
-      </main>
+          {/* <nav className="w-screen">
+            <div className="flex items-center h-14 pl-40">
+              <div className="flex space-x-4">
+                <Link href="/">
+                  <a
+                    data-testid="home-nav"
+                    className="duration-1000 hover:rotate-360 text-3xl px-3 py-2"
+                  >
+                    Home
+                  </a>
+                </Link>
+                <Link href="/expenses">
+                  <a
+                    data-testid="home-nav"
+                    className="duration-1000 hover:rotate-360 text-3xl px-3 py-2"
+                  >
+                    Expenses
+                  </a>
+                </Link>
+              </div>
+            </div>
+          </nav> */}
+        </header>
+      </div>
+
+      <div className="bg-no-repeat bg-center bg-guku-image md:bg-auto sm:bg-cover flex flex-col items-center text-sm font-mono h-800"></div>
+      {/* <main className="flex flex-1 flex-col justify-center items-center w-screen"> */}
+      <main>{children}</main>
       <footer className="w-full h-12 flex justify-center items-center border-t">
         <a
           className="flex items-center"
@@ -82,11 +61,9 @@ export const Layout: VFC<Props> = ({
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          {/* <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" /> */}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+          Powered by noir
         </a>
       </footer>
-    </div>
+    </>
   )
 }
